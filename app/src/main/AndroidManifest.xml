@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.reminders.app" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.example.reminders.app.activities.MainActivity_with_Fragment"
+                android:label="@string/app_name" >
+        </activity>
+        <!-- Will not be called unless the application explicitly enables it -->
+        <receiver android:name=".boradcasts.DeviceBootReceiver"
+                  android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".boradcasts.AlarmReceiver"
+                  android:enabled="false">
+        </receiver>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="b3145792e21803f76131012e46680b5d8ecccb5e"/>
+    </application>
+
+</manifest>
